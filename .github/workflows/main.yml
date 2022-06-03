@@ -20,7 +20,9 @@ jobs:
         uses: docker/setup-buildx-action@v2
       -
         name: Build
-        run: ${GITHUB_WORKSPACE}/Communication_Library/MessageBroker/build_all.sh
+        run: |
+          chmod +x ./Communication_Library/MessageBroker/build_all.sh
+          ./Communication_Library/MessageBroker/build_all.sh
       -
         name: Test
         run: ${GITHUB_WORKSPACE}/Communication_Library/MessageBroker/run_all.sh
