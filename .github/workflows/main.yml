@@ -21,9 +21,13 @@ jobs:
       -
         name: Build
         run: |
-          chmod +x ./Communication_Library/MessageBroker/build_all.sh
-          ./Communication_Library/MessageBroker/build_all.sh
+          cd ./Communication_Library/MessageBroker
+          chmod +x ./build_all.sh
+          ./build_all.sh
       -
         name: Test
-        run: ${GITHUB_WORKSPACE}/Communication_Library/MessageBroker/run_all.sh
+        run: |
+          cd ./Communication_Library/MessageBroker
+          chmod +x ./run_all.sh.sh
+          ./run_all.sh.sh
           
