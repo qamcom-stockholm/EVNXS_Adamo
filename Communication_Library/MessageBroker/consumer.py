@@ -1,12 +1,5 @@
 #!/usr/bin/env python
 import pika, sys, os
-# import socket
-# import docker
-
-# client = docker.from_env()
-# network_name = "rmq_network"
-# atp_container = client.containers.get(socket.gethostname())
-# client.networks.get(network_name).connect(container=atp_container.id)
 
 rmqhost='rmq_host'
 port = 5672
