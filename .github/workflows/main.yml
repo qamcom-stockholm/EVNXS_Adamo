@@ -28,6 +28,6 @@ jobs:
         name: Test
         run: |
           cd ./Communication_Library/MessageBroker
-          chmod +x ./run_all.sh.sh
-          ./run_all.sh.sh
+          chmod +x ./run_all.sh
+          ./run_all.sh
           
