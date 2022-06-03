@@ -1,0 +1,10 @@
+FROM matthewfeickert/docker-python3-ubuntu
+
+RUN  pip install pika
+RUN  pip install docker
+
+WORKDIR /rmq/client
+
+COPY . ./
+
+CMD ["python","consumer.py"]

@@ -1,0 +1,28 @@
+Power Train
+    Battery conditions
+    Driver profile
+    planned reoute
+    driving mode
+In car apps, funs, games
+payment solutions
+compute platform 
+    capability detection 
+    smart node API , what is it?
+    zero downtime upgrade
+    Message Broker
+        RabbitMQ
+    Smart memory allocation 
+    capability detection
+    HW health chceking
+Autonumous driving 
+Parking assist
+Pilot assist, cruise
+Head Beam Control
+Highway Pilot
+Traffic sign info
+Emergency braking
+Lane keeping assistance
+Cross traffic alert
+
+
+

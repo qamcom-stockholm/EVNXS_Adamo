@@ -1,0 +1,39 @@
+version: '3'
+services:
+
+  #----------------------------------------------------------------------------
+  rmq_server:
+    image: rabbitmq:3
+    hostname: rmq_host
+    container_name: rmq_host
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+       - RABBITMQ_DEFAULT_USER=qamcom
+       - RABBITMQ_DEFAULT_PASS=abc123
+    networks:
+      - rmq_network
+  #----------------------------------------------------------------------------
+  consumer:
+    build: 
+      context: .
+      dockerfile: Dockerfile.consumer
+    depends_on:
+      - rmq_server
+    networks:
+      - rmq_network
+  #----------------------------------------------------------------------------
+  producer:
+    build: 
+      context: .
+      dockerfile: Dockerfile.producer    
+    depends_on:
+      - rmq_server
+    networks:
+      - rmq_network
+  #----------------------------------------------------------------------------
+
+networks:
+  rmq_network:
+    name: rmq_network
