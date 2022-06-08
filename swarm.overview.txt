@@ -1,0 +1,54 @@
+docker host in swarm mode
+    manager: assignment and delgation
+    worker: swarm services
+dh_1
+dh_2
+    service:
+        network
+        ports
+        # of replicas
+        storage
+        ---- if reconfigured, Docker restart them automatically
+swarm manager   
+    swarm service
+        tasks: running container
+Docker hosts can also participate in swarm together with swarm services
+submit swarm service ---tasks---> manager node -> node_1
+                                            -> node_2
+                                            -> node_3
+swarm service
+    container to use
+    command to run in the container
+global vs replicated services
+
+-----------------------------------------------
+docker swarm init --advertise-addr <MANAGER-IP>
+
+docker info : 
+    shows the current state of the swarm
+docker node ls
+    shows the list of nodes
+
+on the worker machine run:
+    docker swarm join --token <TOKEN> <MANAGER_IP>:<PORT>
+on the manager node:
+    docker swarm jon-token worker
+    shows the token  for worker join
+
+
+on the manager machine
+    docker service create --replicas 1 --name helloworld alpine ping docker.com
+    docker service ls
+        shows the list of services
+    docker service inspect --pretty <SERVICE_ID>
+        shows the state of the service
+    docker service ps <SERVICE_ID>
+        shows the nodes that running the service
+    docker service scale <SERVICE_ID>=<SCALE_NUMBER>
+        scales the service to the SCALE_NUMBER
+    docker service rm <SERVICE_ID>
+    docker service update --image <IMAGE> <SERVICE_ID> 
+
+    docker node update --availability drain <NODE_ID>
+        drain the node to avoid accepting new tasks and stop running current tasks
+    
