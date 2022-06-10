@@ -1,0 +1,5 @@
+FROM madduci/docker-cpp-env:latest
+
+RUN cmake --version
+
+CMD ["bash","-c"]
