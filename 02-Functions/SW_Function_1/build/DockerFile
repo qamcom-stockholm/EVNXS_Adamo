@@ -22,17 +22,6 @@ RUN ./kitware_install.sh
 
 RUN apt install -y cmake
 RUN cmake --version
-WORKDIR /cpp-dev/openssl_src
-RUN git clone https://github.com/openssl/openssl.git
-WORKDIR /cpp-dev/openssl_src/openssl
-RUN ./Configure
-RUN make
-RUN make test
-WORKDIR /cpp-dev/amqp_cpp
-RUN git clone https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git
-WORKDIR /cpp-dev/amqp_cpp/AMQP-CPP/build
-RUN cmake .. -DAMQP-CPP_BUILD_SHARED=ON -DAMQP-CPP_LINUX_TCP=ON
-RUN cmake --build . --target install
 
 
 

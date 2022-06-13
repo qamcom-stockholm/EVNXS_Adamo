@@ -1,0 +1,21 @@
+FROM cpp-dev:latest
+WORKDIR /cpp-dev/openssl_src
+RUN git clone https://github.com/openssl/openssl.git
+WORKDIR /cpp-dev/openssl_src/openssl
+RUN ./Configure
+RUN make
+RUN make test
+RUN make install
+WORKDIR /cpp-dev/amqp_cpp
+RUN git clone https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git
+WORKDIR /cpp-dev/amqp_cpp/AMQP-CPP/build
+RUN cmake .. -DAMQP-CPP_BUILD_SHARED=ON -DAMQP-CPP_LINUX_TCP=ON
+RUN cmake --build . --target install
+
+WORKDIR /cpp-dev/rabbitmq-c
+RUN git clone https://github.com/alanxz/rabbitmq-c.git
+WORKDIR /cpp-dev/rabbitmq-c/rabbitmq-c/build
+RUN cmake .. 
+RUN make 
+RUN make install
+
