@@ -1,0 +1,10 @@
+FROM amqp_cpp:latest
+
+WORKDIR /cpp-dev/rabbitmq-client
+RUN git clone https://github.com/alanxz/rabbitmq-c.git
+WORKDIR /cpp-dev/rabbitmq-client/rabbitmq-c/build
+RUN cmake .. -DBUILD_EXAMPLES=ON
+RUN cmake --build . --target install
+WORKDIR /cpp-dev/rabbitmq-client/rabbitmq-c/build
+
+

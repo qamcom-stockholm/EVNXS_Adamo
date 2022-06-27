@@ -3,8 +3,8 @@ import pika, sys, os
 
 rmqhost='rmq_host'
 port = 5672
-user_name = 'qamcom'
-password = 'abc123'
+user_name = 'guest'
+password = 'guest'
 queue_name = 'hello'
 def main():
     connection = pika.BlockingConnection(pika.ConnectionParameters(host= rmqhost,port= port, virtual_host='/', credentials=pika.PlainCredentials(user_name, password)))
